@@ -1,0 +1,61 @@
+.main-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #212529;
+  height: 6.4rem;
+  margin-bottom: 2rem;
+  position: fixed;
+  top: 0;
+}
+
+.logo-img {
+  width: 50%;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 3.2rem;
+  margin-right: 3.2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  text-decoration: none;
+  color: #868e96;
+}
+.nav-btn {
+  display: none;
+  margin-right: 1rem;
+}
+
+ion-icon {
+  font-size: 3rem;
+  height: 3rem;
+  width: 3rem;
+  color: #212529;
+  display: block;
+}
+
+@media (max-width: 25em) {
+  .logo-img {
+    height: auto;
+    width: 30%;
+  }
+}
+
+@media (max-width: 60em) {
+  .video-player {
+    max-height: auto;
+  }
+  .hidden {
+    display: none;
+  }
+  .nav-btn {
+    display: block;
+  }
+}

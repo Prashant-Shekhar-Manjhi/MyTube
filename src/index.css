@@ -1,13 +1,58 @@
-body {
+/* 
+
+color: #212529; #bcbebf
+
+*/
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #f1f3f5;
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #bcbebf;
+}
+
+/* media queries */
+
+/* 31em = 496px */
+@media (max-width: 31em) {
+  .search-form-controls {
+    flex-direction: column;
+  }
+
+  .video-list {
+    font-size: 1.6rem;
+  }
+  html {
+    font-size: 40%;
+  }
+}
+
+/* 60em = 960px */
+@media (max-width: 60em) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+  .searched-video {
+    grid-row: 1;
+  }
+  .video-player {
+    max-height: auto;
+  }
+  html {
+    font-size: 56%;
+  }
+  .video-list {
+    font-size: 1.8rem;
+  }
 }
