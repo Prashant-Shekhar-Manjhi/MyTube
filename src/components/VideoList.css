@@ -1,8 +1,17 @@
 .video {
   border-bottom: 1px solid #ced4da;
-  padding: 1.5rem;
+  padding: 1rem;
   cursor: pointer;
   line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
+
+.video_image {
+  height: 90%;
+  width: auto;
 }
 .video:hover {
   background-color: #e9ecef;
@@ -15,9 +24,9 @@
   display: flex;
   flex-direction: column;
   list-style: none;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #343a40;
-  height: 100vh;
+  height: 83vh;
   overflow: hidden;
   border-bottom: 1rem solid red;
 }
@@ -29,6 +38,12 @@
 .video-list::-webkit-scrollbar {
   width: 0;
 }
+.description {
+  color: #343a40;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
 
 .video-list-header {
   font-size: 1.8rem;
@@ -39,9 +54,16 @@
   border-top: 1rem solid red;
   border-bottom: 1px solid #ced4da;
 }
+/* 87.5em = 1400px */
+@media (max-width: 87.5em) {
+  .video-list {
+    font-size: 1.25rem;
+  }
+}
 
 @media (max-width: 75em) {
   .video-list {
     height: auto;
+    font-size: 1.6rem;
   }
 }

@@ -15,8 +15,15 @@ export default function VideoList(props) {
             <li
               className="video"
               key={video.id}
-              onClick={() => props.onClickTitle(video)}
+              onClick={() => {
+                return props.onClickTitle(video);
+              }}
             >
+              <img
+                className="video_image"
+                src={video.imageURL}
+                alt="video_image"
+              />
               {video.title}
             </li>
           );

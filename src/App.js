@@ -6,7 +6,7 @@ import VideoList from "./components/VideoList";
 import SearchBar from "./components/SearchBar";
 const APIkey = "AIzaSyAtTWostq1MsBKVBHh6HeQ2bX6y6xj8YyE";
 const playlistId = "PLO7-VO1D0_6M1xUjj8HxTxskouWx48SNw";
-const URL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=${playlistId}&key=${APIkey}`;
+const URL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=80&playlistId=${playlistId}&key=${APIkey}`;
 
 function App() {
   const [results, setResults] = useState();
@@ -24,12 +24,13 @@ function App() {
       .then((data) => {
         const videos = data.items.map((item) => {
           return {
-            id: Math.random().toString(),
+            id: item.id,
             title: item.snippet.title,
+            desc: item.snippet.description,
             vid: item.contentDetails.videoId,
             publishedAt: item.snippet.publishedAt,
             channelTitle: item.snippet.channelTitle,
-            image: item.snippet.thumbnails.default.url,
+            imageURL: item.snippet.thumbnails.default.url,
           };
         });
         setResults(videos);
@@ -55,7 +56,7 @@ function App() {
           <div className="searched-video">
             <ReactPlayer
               width="100%"
-              height="60rem"
+              height="65em"
               controls
               playing
               url={`https://youtu.be/${video.vid}`}
@@ -65,6 +66,8 @@ function App() {
             <p className="date">
               <span>Published At -</span>- {video.publishedAt}
             </p>
+
+            <p className="description">{video.desc.slice(0, 500) + "..."}</p>
           </div>
         </div>
       )}
