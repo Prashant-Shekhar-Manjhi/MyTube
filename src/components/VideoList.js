@@ -1,8 +1,6 @@
 import React from "react";
 import "./VideoList.css";
 
-// APIkey=AIzaSyAtTWostq1MsBKVBHh6HeQ2bX6y6xj8YyE
-
 export default function VideoList(props) {
   return (
     <div className="videos">

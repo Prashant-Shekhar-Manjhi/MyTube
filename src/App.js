@@ -8,16 +8,27 @@ import SearchBar from "./components/SearchBar";
 // const APIkey_1 = "AIzaSyAtTWostq1MsBKVBHh6HeQ2bX6y6xj8YyE";
 const APIkey_2 = "AIzaSyB6uu8KTL1PayJX2z4aNUTxFmi3Ry16fSM";
 const APIkey_youtube_search = "AIzaSyA5tO9GTE2eeYVJevuaZhtFhW_-FL1oA9s";
-const playlistId = "PLO7-VO1D0_6M1xUjj8HxTxskouWx48SNw";
-const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=${playlistId}&key=${APIkey_2}`;
+const playlistId = "PL3oW2tjiIxvTSdJ4zqjL9dijeZ0LjcuGS";
 
 function App() {
   const [results, setResults] = useState();
   const [video, setVideo] = useState({});
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const clickTitleHandler = (video) => {
+    setLoading(true);
     setVideo(video);
+  };
+
+  const endHandler = () => {
+    if (results.indexOf(video) === results.length - 1) {
+      setVideo(results[0]);
+    } else setVideo(results[results.indexOf(video) + 1]);
+  };
+
+  const readyHandler = () => {
+    setLoading(false);
   };
 
   function searchVideo(keyword) {
@@ -40,9 +51,10 @@ function App() {
             imageURL: item.snippet.thumbnails.default.url,
           };
         });
-        console.log(filterSearchedData);
+
         setResults(filterSearchedData);
         setVideo(filterSearchedData[0]);
+        setLoading(false);
       })
       .catch((error) => {
         setError(error);
@@ -50,10 +62,13 @@ function App() {
   }
 
   const onSearchHandler = (keyword) => {
+    setLoading(true);
     searchVideo(keyword);
   };
 
-  function getPlaylist() {
+  function getPlaylist(playlistId) {
+    const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=${playlistId}&key=${APIkey_2}`;
+
     fetch(url)
       .then((response) => {
         if (!response.ok)
@@ -72,9 +87,10 @@ function App() {
             imageURL: item.snippet.thumbnails.default.url,
           };
         });
-        console.log(filteredData);
+
         setResults(filteredData);
         setVideo(filteredData[0]);
+        setLoading(false);
       })
       .catch((err) => {
         setError(err);
@@ -82,12 +98,13 @@ function App() {
   }
 
   useEffect(() => {
-    getPlaylist();
+    getPlaylist(playlistId);
   }, []);
 
   return (
     <div className="App">
-      <Header />
+      <Header isLoading={loading} />
+
       <SearchBar onSearch={onSearchHandler} />
 
       {results && !error && (
@@ -102,6 +119,8 @@ function App() {
               controls
               playing
               url={`https://youtu.be/${video.vid}`}
+              onEnded={endHandler}
+              onReady={readyHandler}
               className="video-player"
             />
             <h3 className="video-title">{video.title}</h3>

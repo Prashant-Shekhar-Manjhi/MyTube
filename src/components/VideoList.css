@@ -10,8 +10,8 @@
 }
 
 .video_image {
-  height: 90%;
-  width: auto;
+  width: 30%;
+  height: auto;
 }
 .video:hover {
   background-color: #e9ecef;
