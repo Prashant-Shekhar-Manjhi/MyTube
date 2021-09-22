@@ -2,12 +2,11 @@
   width: 100%;
   position: fixed;
   top: 0;
-  margin-bottom: 3rem;
   height: 8rem;
 }
 .header {
+  padding: 1rem 0;
   display: flex;
-  height: 6.4rem;
   justify-content: space-between;
   align-items: center;
   background-color: #212529;
@@ -30,8 +29,11 @@
 .nav-link:visited {
   text-decoration: none;
   color: #868e96;
+  pointer-events: none;
+  cursor: pointer;
 }
-.nav-btn {
+.nav-btn-open,
+.nav-btn-close {
   display: none;
   margin-right: 1rem;
 }
@@ -78,10 +80,23 @@ ion-icon {
   .video-player {
     max-height: auto;
   }
+
   .hidden {
-    display: none;
+    display: none !important;
   }
-  .nav-btn {
+
+  .nav-btn-open {
     display: block;
   }
+
+  .header-links {
+    display: block;
+  }
+  /* 
+  .nav-links ul {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-left: 2.5rem;
+    margin-bottom: 1.5rem;
+  } */
 }

@@ -14,6 +14,10 @@ export default function VideoList(props) {
               className="video"
               key={video.id}
               onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
                 return props.onClickTitle(video);
               }}
             >

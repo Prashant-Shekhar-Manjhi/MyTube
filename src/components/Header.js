@@ -7,6 +7,7 @@ export default function Header(props) {
   if (props.isLoading) {
     loader = <div className="loading animation"></div>;
   }
+
   return (
     <div className="main-header">
       <header className="header">
@@ -30,7 +31,7 @@ export default function Header(props) {
           </ul>
         </div>
 
-        <button className="nav-btn">
+        <button className="nav-btn-open">
           <ion-icon name="menu-sharp"></ion-icon>
         </button>
       </header>

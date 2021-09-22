@@ -122,6 +122,7 @@ function App() {
               onEnded={endHandler}
               onReady={readyHandler}
               className="video-player"
+              id="video-player"
             />
             <h3 className="video-title">{video.title}</h3>
             <p className="date">
