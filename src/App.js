@@ -48,7 +48,7 @@ function App() {
             vid: item.id.videoId,
             publishedAt: item.snippet.publishedAt,
             channelTitle: item.snippet.channelTitle,
-            imageURL: item.snippet.thumbnails.default.url,
+            imageURL: item.snippet.thumbnails.medium.url,
           };
         });
 
@@ -84,7 +84,7 @@ function App() {
             vid: item.contentDetails.videoId,
             publishedAt: item.snippet.publishedAt,
             channelTitle: item.snippet.channelTitle,
-            imageURL: item.snippet.thumbnails.default.url,
+            imageURL: item.snippet.thumbnails.medium.url,
           };
         });
 
