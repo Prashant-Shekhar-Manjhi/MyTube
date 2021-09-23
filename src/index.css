@@ -26,15 +26,11 @@ body {
 
 /* 31em = 496px */
 @media (max-width: 31em) {
-  .search-form-controls {
-    flex-direction: column;
-  }
-
   .video-list {
     font-size: 1.6rem;
   }
   html {
-    font-size: 40%;
+    font-size: 52%;
   }
 }
 
@@ -43,12 +39,7 @@ body {
   .content {
     grid-template-columns: 1fr;
   }
-  .searched-video {
-    grid-row: 1;
-  }
-  .video-player {
-    max-height: auto;
-  }
+
   html {
     font-size: 56%;
   }

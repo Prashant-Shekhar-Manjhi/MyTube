@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "./SearchBar.css";
 
 export default function SearchBar(props) {
@@ -13,6 +12,7 @@ export default function SearchBar(props) {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    console.log(event.target.value);
     if (searchTitle) props.onSearch(searchTitle);
     else {
       setError(false);
@@ -42,6 +42,7 @@ export default function SearchBar(props) {
     <div className="search-bar">
       <form onSubmit={onSubmitHandler} className="search-form-controls">
         {inputField}
+
         <button type="submit" className="search-btn">
           <ion-icon name="search-outline"></ion-icon>
         </button>

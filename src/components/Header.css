@@ -29,7 +29,7 @@
 .nav-link:visited {
   text-decoration: none;
   color: #868e96;
-  pointer-events: none;
+
   cursor: pointer;
 }
 .nav-btn-open,

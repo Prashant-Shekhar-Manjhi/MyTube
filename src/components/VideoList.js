@@ -5,7 +5,7 @@ export default function VideoList(props) {
   return (
     <div className="videos">
       <header className="video-list-header">
-        <p>{props.videoAPI[0].channelTitle}</p>
+        {props.videoAPI[0] && <p>{props.videoAPI[0].channelTitle}</p>}
       </header>
       <ol className="video-list">
         {props.videoAPI.map((video) => {

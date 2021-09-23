@@ -26,7 +26,7 @@
   list-style: none;
   font-size: 1.4rem;
   color: #343a40;
-  height: 83vh;
+  height: 85vh;
   overflow: hidden;
   border-bottom: 1rem solid red;
 }
@@ -60,10 +60,14 @@
     font-size: 1.25rem;
   }
 }
-
+/* 75em = 1200px */
 @media (max-width: 75em) {
   .video-list {
     height: auto;
     font-size: 1.6rem;
+  }
+  .video_image {
+    width: 15%;
+    height: auto;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player/youtube";
+import Watch from "./components/Watch";
 import "./App.css";
 import Header from "./components/Header";
 import VideoList from "./components/VideoList";
@@ -11,28 +11,13 @@ const APIkey_youtube_search = "AIzaSyA5tO9GTE2eeYVJevuaZhtFhW_-FL1oA9s";
 const playlistId = "PL3oW2tjiIxvTSdJ4zqjL9dijeZ0LjcuGS";
 
 function App() {
-  const [results, setResults] = useState();
+  const [results, setResults] = useState([]);
   const [video, setVideo] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const clickTitleHandler = (video) => {
-    setLoading(true);
-    setVideo(video);
-  };
-
-  const endHandler = () => {
-    if (results.indexOf(video) === results.length - 1) {
-      setVideo(results[0]);
-    } else setVideo(results[results.indexOf(video) + 1]);
-  };
-
-  const readyHandler = () => {
-    setLoading(false);
-  };
-
   function searchVideo(keyword) {
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&type=video&key=${APIkey_youtube_search}`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${keyword}&type=video&key=${APIkey_youtube_search}`;
     fetch(url)
       .then((response) => {
         if (!response.ok)
@@ -53,17 +38,32 @@ function App() {
         });
 
         setResults(filterSearchedData);
-        setVideo(filterSearchedData[0]);
         setLoading(false);
       })
       .catch((error) => {
         setError(error);
+        setLoading(false);
       });
   }
 
   const onSearchHandler = (keyword) => {
     setLoading(true);
     searchVideo(keyword);
+  };
+
+  const clickTitleHandler = (video) => {
+    setLoading(true);
+    setVideo(video);
+  };
+
+  const endHandler = () => {
+    if (results.indexOf(video) === results.length - 1) {
+      setVideo(results[0]);
+    } else setVideo(results[results.indexOf(video) + 1]);
+  };
+
+  const readyHandler = () => {
+    setLoading(false);
   };
 
   function getPlaylist(playlistId) {
@@ -94,6 +94,7 @@ function App() {
       })
       .catch((err) => {
         setError(err);
+        setLoading(false);
       });
   }
 
@@ -104,36 +105,18 @@ function App() {
   return (
     <div className="App">
       <Header isLoading={loading} />
-
       <SearchBar onSearch={onSearchHandler} />
-
       {results && !error && (
         <div className="content">
           <div className="searched-videos">
             <VideoList videoAPI={results} onClickTitle={clickTitleHandler} />
           </div>
-          <div className="searched-video">
-            <ReactPlayer
-              width="100%"
-              height="65em"
-              controls
-              playing
-              url={`https://youtu.be/${video.vid}`}
-              onEnded={endHandler}
-              onReady={readyHandler}
-              className="video-player"
-              id="video-player"
-            />
-            <h3 className="video-title">{video.title}</h3>
-            <p className="date">
-              <span>Published At -</span>- {video.publishedAt}
-            </p>
-            {video.desc && video.desc.length > 500 ? (
-              <p className="description">{video.desc.slice(0, 500) + "..."}</p>
-            ) : (
-              <p className="description">{video.desc}</p>
-            )}
-          </div>
+
+          <Watch
+            video={video}
+            endHandler={endHandler}
+            readyHandler={readyHandler}
+          />
         </div>
       )}
       {error && <p className="error">{`${error}`}</p>}

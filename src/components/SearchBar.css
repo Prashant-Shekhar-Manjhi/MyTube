@@ -1,15 +1,18 @@
 .search-bar {
+  max-width: 65rem;
+  margin: 0 auto;
   padding: 0 1.5rem;
   margin-top: 9.8rem;
 }
 .search-form-controls {
+  max-width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .search-input {
-  width: 60rem;
-
+  /* width: 60rem; */
+  width: 90%;
   height: 4rem;
   padding: 1rem;
   font-size: 2rem;
@@ -18,12 +21,16 @@
 }
 
 .search-btn {
-  display: inline-block;
+  width: 10%;
+  /* display: inline-block; */
   padding: 0.18rem 1.5rem;
   outline: none;
   border: 1px solid grey;
   border-left: none;
   background-color: #f1f3f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search-btn ion-icon {
@@ -41,11 +48,8 @@
 }
 
 @media (max-width: 31em) {
-  .search-btn {
-    display: none;
-  }
-  .search-input {
-    width: 100%;
+  .search-form-controls {
+    max-width: 100%;
   }
   .video-list {
     font-size: 1.6rem;
