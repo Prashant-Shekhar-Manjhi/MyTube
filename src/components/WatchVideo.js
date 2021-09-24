@@ -2,7 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 import "./Watch.css";
 
-export default function Watch(props) {
+export default function WatchVideo(props) {
   return (
     <div className="searched-video">
       <ReactPlayer
@@ -18,7 +18,8 @@ export default function Watch(props) {
       />
       <h3 className="video-title">{props.video.title}</h3>
       <p className="date">
-        <span>Published At -</span>- {props.video.publishedAt}
+        <span></span>
+        {props.video.publishedAt}
       </p>
       {props.video.desc && props.video.desc.length > 500 ? (
         <p className="description">{props.video.desc.slice(0, 500) + "..."}</p>

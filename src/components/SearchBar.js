@@ -12,7 +12,6 @@ export default function SearchBar(props) {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
     if (searchTitle) props.onSearch(searchTitle);
     else {
       setError(false);

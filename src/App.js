@@ -1,54 +1,28 @@
 import React, { useState, useEffect } from "react";
-import Watch from "./components/Watch";
+import WatchVideo from "./components/WatchVideo";
 import "./App.css";
 import Header from "./components/Header";
 import VideoList from "./components/VideoList";
 import SearchBar from "./components/SearchBar";
+import { Route, useHistory, Redirect } from "react-router-dom";
+import Search from "./pages/Search";
+import { Fragment } from "react";
 
-// const APIkey_1 = "AIzaSyAtTWostq1MsBKVBHh6HeQ2bX6y6xj8YyE";
-const APIkey_2 = "AIzaSyB6uu8KTL1PayJX2z4aNUTxFmi3Ry16fSM";
-const APIkey_youtube_search = "AIzaSyA5tO9GTE2eeYVJevuaZhtFhW_-FL1oA9s";
+const APIkey_1 = "AIzaSyB6uu8KTL1PayJX2z4aNUTxFmi3Ry16fSM";
 const playlistId = "PL3oW2tjiIxvTSdJ4zqjL9dijeZ0LjcuGS";
 
 function App() {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState();
   const [video, setVideo] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-
-  function searchVideo(keyword) {
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${keyword}&type=video&key=${APIkey_youtube_search}`;
-    fetch(url)
-      .then((response) => {
-        if (!response.ok)
-          throw new Error(`${response.status} Videos not Found `);
-        return response.json();
-      })
-      .then((data) => {
-        const filterSearchedData = data.items.map((item) => {
-          return {
-            id: Math.random().toString(),
-            title: item.snippet.title,
-            desc: item.snippet.description,
-            vid: item.id.videoId,
-            publishedAt: item.snippet.publishedAt,
-            channelTitle: item.snippet.channelTitle,
-            imageURL: item.snippet.thumbnails.default.url,
-          };
-        });
-
-        setResults(filterSearchedData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }
+  const [keyword, setKeyword] = useState("");
+  const history = useHistory();
 
   const onSearchHandler = (keyword) => {
     setLoading(true);
-    searchVideo(keyword);
+    setKeyword(keyword);
+    history.push(`search?query=${keyword}`);
   };
 
   const clickTitleHandler = (video) => {
@@ -66,8 +40,8 @@ function App() {
     setLoading(false);
   };
 
-  function getPlaylist(playlistId) {
-    const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=${playlistId}&key=${APIkey_2}`;
+  function getPlaylist(playlistId, APIkey) {
+    const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=${playlistId}&key=${APIkey}`;
 
     fetch(url)
       .then((response) => {
@@ -99,28 +73,37 @@ function App() {
   }
 
   useEffect(() => {
-    getPlaylist(playlistId);
+    getPlaylist(playlistId, APIkey_1);
   }, []);
 
   return (
-    <div className="App">
-      <Header isLoading={loading} />
+    <Fragment>
       <SearchBar onSearch={onSearchHandler} />
-      {results && !error && (
-        <div className="content">
-          <div className="searched-videos">
-            <VideoList videoAPI={results} onClickTitle={clickTitleHandler} />
-          </div>
+      <Route path="/MyTube" exact>
+        <Redirect to="/" />
+      </Route>
 
-          <Watch
-            video={video}
-            endHandler={endHandler}
-            readyHandler={readyHandler}
-          />
-        </div>
-      )}
-      {error && <p className="error">{`${error}`}</p>}
-    </div>
+      <Route path="/" exact>
+        <Header isLoading={loading} />
+        {results && !error && (
+          <div className="content">
+            <div className="searched-videos">
+              <VideoList videoAPI={results} onClickTitle={clickTitleHandler} />
+            </div>
+
+            <WatchVideo
+              video={video}
+              endHandler={endHandler}
+              readyHandler={readyHandler}
+            />
+          </div>
+        )}
+        {error && <p className="error">{`${error}`}</p>}
+      </Route>
+      <Route path="/Search">
+        <Search keyword={keyword} />
+      </Route>
+    </Fragment>
   );
 }
 
