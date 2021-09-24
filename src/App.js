@@ -4,7 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import VideoList from "./components/VideoList";
 import SearchBar from "./components/SearchBar";
-import { Route, useHistory, Redirect } from "react-router-dom";
+import { Route, useHistory, Redirect, Switch } from "react-router-dom";
 import Search from "./pages/Search";
 import { Fragment } from "react";
 
@@ -22,7 +22,7 @@ function App() {
   const onSearchHandler = (keyword) => {
     setLoading(true);
     setKeyword(keyword);
-    history.push(`search?query=${keyword}`);
+    history.push(`/MyTube/search?query=${keyword}`);
   };
 
   const clickTitleHandler = (video) => {
@@ -79,30 +79,35 @@ function App() {
   return (
     <Fragment>
       <SearchBar onSearch={onSearchHandler} />
-      <Route path="/MyTube" exact>
-        <Redirect to="/" />
-      </Route>
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/MyTube" />
+        </Route>
 
-      <Route path="/" exact>
-        <Header isLoading={loading} />
-        {results && !error && (
-          <div className="content">
-            <div className="searched-videos">
-              <VideoList videoAPI={results} onClickTitle={clickTitleHandler} />
+        <Route path="/MyTube" exact>
+          <Header isLoading={loading} />
+          {results && !error && (
+            <div className="content">
+              <div className="searched-videos">
+                <VideoList
+                  videoAPI={results}
+                  onClickTitle={clickTitleHandler}
+                />
+              </div>
+
+              <WatchVideo
+                video={video}
+                endHandler={endHandler}
+                readyHandler={readyHandler}
+              />
             </div>
-
-            <WatchVideo
-              video={video}
-              endHandler={endHandler}
-              readyHandler={readyHandler}
-            />
-          </div>
-        )}
-        {error && <p className="error">{`${error}`}</p>}
-      </Route>
-      <Route path="/Search">
-        <Search keyword={keyword} />
-      </Route>
+          )}
+          {error && <p className="error">{`${error}`}</p>}
+        </Route>
+        <Route path="/MyTube/Search">
+          <Search keyword={keyword} />
+        </Route>
+      </Switch>
     </Fragment>
   );
 }

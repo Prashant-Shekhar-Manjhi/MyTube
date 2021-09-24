@@ -19,12 +19,12 @@ export default function Header(props) {
         <div className="nav-links hidden">
           <ul>
             <li>
-              <a href="/" className="nav-link">
+              <a href="/MyTube" className="nav-link">
                 Home
               </a>
             </li>
             <li>
-              <a href="/" className="nav-link">
+              <a href="/MyTube" className="nav-link">
                 Contact
               </a>
             </li>
