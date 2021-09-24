@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/MyTube/static/css/main.a5486d38.chunk.css",
-    "main.js": "/MyTube/static/js/main.03c7d07c.chunk.js",
-    "main.js.map": "/MyTube/static/js/main.03c7d07c.chunk.js.map",
+    "main.js": "/MyTube/static/js/main.0c271489.chunk.js",
+    "main.js.map": "/MyTube/static/js/main.0c271489.chunk.js.map",
     "runtime-main.js": "/MyTube/static/js/runtime-main.1a4158ae.js",
     "runtime-main.js.map": "/MyTube/static/js/runtime-main.1a4158ae.js.map",
-    "static/js/2.a7651b42.chunk.js": "/MyTube/static/js/2.a7651b42.chunk.js",
-    "static/js/2.a7651b42.chunk.js.map": "/MyTube/static/js/2.a7651b42.chunk.js.map",
+    "static/js/2.d8588293.chunk.js": "/MyTube/static/js/2.d8588293.chunk.js",
+    "static/js/2.d8588293.chunk.js.map": "/MyTube/static/js/2.d8588293.chunk.js.map",
     "static/js/3.9182ca94.chunk.js": "/MyTube/static/js/3.9182ca94.chunk.js",
     "static/js/3.9182ca94.chunk.js.map": "/MyTube/static/js/3.9182ca94.chunk.js.map",
     "index.html": "/MyTube/index.html",
     "static/css/main.a5486d38.chunk.css.map": "/MyTube/static/css/main.a5486d38.chunk.css.map",
-    "static/js/2.a7651b42.chunk.js.LICENSE.txt": "/MyTube/static/js/2.a7651b42.chunk.js.LICENSE.txt"
+    "static/js/2.d8588293.chunk.js.LICENSE.txt": "/MyTube/static/js/2.d8588293.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1a4158ae.js",
-    "static/js/2.a7651b42.chunk.js",
+    "static/js/2.d8588293.chunk.js",
     "static/css/main.a5486d38.chunk.css",
-    "static/js/main.03c7d07c.chunk.js"
+    "static/js/main.0c271489.chunk.js"
   ]
 }
