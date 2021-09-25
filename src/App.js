@@ -4,14 +4,14 @@ import "./App.css";
 import Header from "./components/Header";
 import VideoList from "./components/VideoList";
 import SearchBar from "./components/SearchBar";
-
 import { Fragment } from "react";
-const APIkey_youtube_search_1 = "AIzaSyA5tO9GTE2eeYVJevuaZhtFhW_-FL1oA9s";
-// const APIkey_youtube_search_2 = "AIzaSyAtTWostq1MsBKVBHh6HeQ2bX6y6xj8YyE";
-const APIkey_1 = "AIzaSyB6uu8KTL1PayJX2z4aNUTxFmi3Ry16fSM";
+
+const APIkey_youtube_search = process.env.REACT_APP_API_KEY_SEARCH_2;
+const APIkey_youtube_playlist = process.env.REACT_APP_API_KEY_PLAYLIST_1;
 const playlistId = "PL3oW2tjiIxvTSdJ4zqjL9dijeZ0LjcuGS";
 
 function App() {
+  console.log(process.env);
   const [results, setResults] = useState();
   const [video, setVideo] = useState({});
   const [error, setError] = useState("");
@@ -19,7 +19,7 @@ function App() {
 
   const onSearchHandler = (keyword) => {
     setLoading(true);
-    searchVideo(keyword, APIkey_youtube_search_1);
+    searchVideo(keyword, APIkey_youtube_search);
   };
 
   const clickTitleHandler = (video) => {
@@ -99,7 +99,7 @@ function App() {
   }
 
   useEffect(() => {
-    getPlaylist(playlistId, APIkey_1);
+    getPlaylist(playlistId, APIkey_youtube_playlist);
   }, []);
 
   return (
