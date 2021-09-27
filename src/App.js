@@ -5,6 +5,10 @@ import Header from "./components/Header";
 import VideoList from "./components/VideoList";
 import SearchBar from "./components/SearchBar";
 import { Fragment } from "react";
+// import VoiceModal from "./components/VoiceModal";
+// import SpeechRecognition, {
+//   useSpeechRecognition,
+// } from "react-speech-recognition";
 
 const APIkey_youtube_search = process.env.REACT_APP_API_KEY_SEARCH_2;
 const APIkey_youtube_playlist = process.env.REACT_APP_API_KEY_PLAYLIST_1;
