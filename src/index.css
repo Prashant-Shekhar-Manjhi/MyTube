@@ -12,6 +12,7 @@ color: #212529; #bcbebf
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
@@ -20,6 +21,13 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #bcbebf;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 150rem;
+  padding: 1.5rem;
 }
 
 /* media queries */
@@ -49,11 +57,11 @@ body {
 }
 
 .content {
-  max-width: 150rem;
+  max-width: 170rem;
   margin: 0 auto;
   padding: 1.5rem;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 3fr 1fr;
   gap: 1.2rem;
   align-items: start;
 }

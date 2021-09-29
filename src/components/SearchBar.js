@@ -3,46 +3,39 @@ import "./SearchBar.css";
 
 export default function SearchBar(props) {
   const [searchTitle, setSearchTitle] = useState("");
-  const [error, setError] = useState(true);
+  const [valid, setValid] = useState(false);
 
   const onChangeHandler = (event) => {
-    setSearchTitle(event.target.value);
-    setError(true);
+    if (event.target.value.trim().length > 0) {
+      setValid(true);
+      setSearchTitle(event.target.value);
+    } else {
+      setValid(false);
+    }
   };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    if (searchTitle) props.onSearch(searchTitle);
-    else {
-      setError(false);
+    if (valid) {
+      props.onSearch(searchTitle);
     }
   };
-
-  let inputField = (
-    <input
-      className="search-input"
-      type="text"
-      onChange={onChangeHandler}
-      placeholder="Search Videos"
-    />
-  );
-  if (!error) {
-    inputField = (
-      <input
-        className="search-input error-input"
-        type="text"
-        onChange={onChangeHandler}
-        placeholder="Search Videos"
-      />
-    );
+  let classBtn = "search-btn";
+  if (!valid) {
+    classBtn = "search-btn disable-btn";
   }
 
   return (
     <div className="search-bar">
       <form onSubmit={onSubmitHandler} className="search-form-controls">
-        {inputField}
+        <input
+          className="search-input"
+          type="text"
+          onChange={onChangeHandler}
+          placeholder="Search Videos"
+        />
 
-        <button type="submit" className="search-btn">
+        <button type="submit" className={classBtn}>
           <ion-icon name="search-outline"></ion-icon>
         </button>
       </form>

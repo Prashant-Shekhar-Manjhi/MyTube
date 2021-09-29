@@ -1,10 +1,21 @@
 .searched-videos {
-  background-color: #fff;
+  border-top: 1rem solid red;
+  height: 85vh;
+  overflow: hidden;
+}
+.searched-videos:hover {
+  overflow-y: scroll;
+}
+.searched-videos::-webkit-scrollbar {
+  width: 0;
 }
 
 /* 75em = 1200px */
 @media (max-width: 75em) {
   .content {
     grid-template-columns: 1fr;
+  }
+  .searched-videos {
+    height: auto;
   }
 }

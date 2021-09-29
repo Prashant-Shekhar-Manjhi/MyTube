@@ -7,7 +7,7 @@ export default function WatchVideo(props) {
     <div className="searched-video">
       <ReactPlayer
         width="100%"
-        height="65em"
+        height="70rem"
         controls
         playing
         url={`https://youtu.be/${props.video.vid}`}

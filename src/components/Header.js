@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 import logo from "../logo/logo.png";
 
@@ -8,6 +9,10 @@ export default function Header(props) {
     loader = <div className="loading animation"></div>;
   }
 
+  const closeHandler = function () {
+    document.querySelector(".header").classList.toggle("nav-open");
+  };
+
   return (
     <div className="main-header">
       <header className="header">
@@ -16,23 +21,29 @@ export default function Header(props) {
             <img className="logo-img" src={logo} alt="logo" />
           </a>
         </div>
-        <div className="nav-links hidden">
+        <div className="nav-links" onClick={closeHandler}>
           <ul>
             <li>
-              <a href="/MyTube" className="nav-link">
+              <NavLink to="/MyTube" className="nav-link">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="/MyTube" className="nav-link">
-                Contact
-              </a>
+              <NavLink
+                activeClassName="active-nav-link"
+                className="nav-link"
+                to="/newsLive"
+              >
+                <span className="live-icon"> &#9679; </span>
+                Live News
+              </NavLink>
             </li>
           </ul>
         </div>
 
-        <button className="nav-btn-open">
-          <ion-icon name="menu-sharp"></ion-icon>
+        <button className="nav-btn-mobile" onClick={closeHandler}>
+          <ion-icon className="nav-icon-mobile" name="menu-outline"></ion-icon>
+          <ion-icon className="nav-icon-mobile" name="close-outline"></ion-icon>
         </button>
       </header>
       {loader}
