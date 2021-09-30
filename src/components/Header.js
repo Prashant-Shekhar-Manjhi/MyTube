@@ -17,9 +17,9 @@ export default function Header(props) {
     <div className="main-header">
       <header className="header">
         <div className="logo">
-          <a href="/MyTube">
+          <NavLink path="/">
             <img className="logo-img" src={logo} alt="logo" />
-          </a>
+          </NavLink>
         </div>
         <div className="nav-links" onClick={closeHandler}>
           <ul>
