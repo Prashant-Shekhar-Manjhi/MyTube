@@ -17,7 +17,7 @@ export default function Header(props) {
     <div className="main-header">
       <header className="header">
         <div className="logo">
-          <NavLink path="/">
+          <NavLink to="/">
             <img className="logo-img" src={logo} alt="logo" />
           </NavLink>
         </div>
