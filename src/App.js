@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import WatchVideo from "./components/WatchVideo";
 import "./App.css";
 import Header from "./components/Header";
@@ -6,8 +6,9 @@ import VideoList from "./components/VideoList";
 import SearchBar from "./components/SearchBar";
 import { Fragment } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import Search from "./components/Search";
-import News from "./components/News";
+
+const Search = React.lazy(() => import("./pages/Search"));
+const News = React.lazy(() => import("./pages/News"));
 
 const APIkey_youtube_playlist = process.env.REACT_APP_API_KEY_PLAYLIST_1;
 const playlistId = "PL3oW2tjiIxvTSdJ4zqjL9dijeZ0LjcuGS";
@@ -79,35 +80,37 @@ function App() {
   return (
     <Fragment>
       <Switch>
-        <Route path="/" exact>
-          <Header isLoading={loading} />
-          <SearchBar onSearch={onSearchHandler} />
-          {results && !error && (
-            <div className="content">
-              <WatchVideo
-                video={video}
-                endHandler={endHandler}
-                readyHandler={readyHandler}
-              />
-              <div className="searched-videos">
-                <VideoList
-                  videoAPI={results}
-                  onClickTitle={clickTitleHandler}
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <Route path="/" exact>
+            <Header isLoading={loading} />
+            <SearchBar onSearch={onSearchHandler} />
+            {results && !error && (
+              <div className="content">
+                <WatchVideo
+                  video={video}
+                  endHandler={endHandler}
+                  readyHandler={readyHandler}
                 />
+                <div className="searched-videos">
+                  <VideoList
+                    videoAPI={results}
+                    onClickTitle={clickTitleHandler}
+                  />
+                </div>
               </div>
-            </div>
-          )}
-          {error && <p className="error">{`${error}`}</p>}
-        </Route>
-        <Route path="/newsLive">
-          <News />
-        </Route>
-        <Route path="/search">
-          <Search />
-        </Route>
-        <Route path="/*">
-          <h1 className="page-not-found">Page Not Found.</h1>
-        </Route>
+            )}
+            {error && <p className="error">{`${error}`}</p>}
+          </Route>
+          <Route path="/newsLive">
+            <News />
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/*">
+            {/* <h1 className="page-not-found">Page Not Found.</h1> */}
+          </Route>
+        </Suspense>
       </Switch>
     </Fragment>
   );

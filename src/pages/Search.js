@@ -1,61 +1,57 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import WatchVideo from "./WatchVideo";
-import VideoList from "./VideoList";
-import Header from "./Header";
-import SearchBar from "./SearchBar";
-import "./News.css";
+import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
-const APIkey_youtube_search = process.env.REACT_APP_API_KEY_SEARCH_1;
+import { useLocation, useHistory } from "react-router-dom";
+import VideoList from "../components/VideoList";
+import WatchVideo from "../components/WatchVideo";
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+const APIkey_youtube_search = process.env.REACT_APP_API_KEY_SEARCH_2;
 
-export default function News() {
+export default function Search() {
   const [results, setResults] = useState();
   const [video, setVideo] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  let history = useHistory();
+  const location = useLocation();
+  const history = useHistory();
 
-  const onSearchHandler = (keyword) => {
-    setLoading(true);
-    history.push(`/search?keyword=${keyword}`);
-  };
+  const query = new URLSearchParams(location.search);
+  const keyword = query.get("keyword");
 
   const clickTitleHandler = (video) => {
     setLoading(true);
     setVideo(video);
   };
-
   const endHandler = () => {
     if (results.indexOf(video) === results.length - 1) {
       setVideo(results[0]);
     } else setVideo(results[results.indexOf(video) + 1]);
   };
-
   const readyHandler = () => {
     setLoading(false);
   };
-  function fetchNews(APIkey) {
-    const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=W6lv5HJnJBA%2CBMRMPG2Ryw8%2CMN8p-Vrn6G0&key=${APIkey}`;
+  function searchVideo(keyword, APIkey) {
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${keyword}&type=video&key=${APIkey}`;
     fetch(url)
       .then((response) => {
-        if (!response.ok) throw new Error(`${response.status} News not Found.`);
+        if (!response.ok)
+          throw new Error(`${response.status} Videos not Found `);
         return response.json();
       })
       .then((data) => {
-        const filteredData = data.items.map((item) => {
+        const filterSearchedData = data.items.map((item) => {
           return {
             id: Math.random().toString(),
-            title: item.snippet.channelTitle,
+            title: item.snippet.title,
             desc: item.snippet.description,
-            vid: item.id,
+            vid: item.id.videoId,
             publishedAt: item.snippet.publishedAt,
-            channelTitle: `Live News`,
-            imageURL: item.snippet.thumbnails.medium.url,
+            channelTitle: item.snippet.channelTitle,
+            imageURL: item.snippet.thumbnails.default.url,
           };
         });
-
-        setResults(filteredData);
-        setVideo(filteredData[0]);
+        setResults(filterSearchedData);
+        setVideo(filterSearchedData[0]);
         setLoading(false);
       })
       .catch((error) => {
@@ -63,11 +59,14 @@ export default function News() {
         setLoading(false);
       });
   }
-
   useEffect(() => {
-    fetchNews(APIkey_youtube_search);
-  }, []);
+    searchVideo(keyword, APIkey_youtube_search);
+  }, [keyword]);
 
+  const onSearchHandler = (keyword) => {
+    setLoading(true);
+    history.push(`/search?keyword=${keyword}`);
+  };
   return (
     <Fragment>
       <Header isLoading={loading} />
