@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/MyTube/static/css/main.b6e9921d.chunk.css",
-    "main.js": "/MyTube/static/js/main.74e12f6c.chunk.js",
-    "main.js.map": "/MyTube/static/js/main.74e12f6c.chunk.js.map",
+    "main.js": "/MyTube/static/js/main.d9a5b765.chunk.js",
+    "main.js.map": "/MyTube/static/js/main.d9a5b765.chunk.js.map",
     "runtime-main.js": "/MyTube/static/js/runtime-main.9822a2e5.js",
     "runtime-main.js.map": "/MyTube/static/js/runtime-main.9822a2e5.js.map",
     "static/js/2.cd191499.chunk.js": "/MyTube/static/js/2.cd191499.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.9822a2e5.js",
     "static/js/2.cd191499.chunk.js",
     "static/css/main.b6e9921d.chunk.css",
-    "static/js/main.74e12f6c.chunk.js"
+    "static/js/main.d9a5b765.chunk.js"
   ]
 }
