@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import WatchVideo from "./WatchVideo";
 import VideoList from "./VideoList";
 import Header from "./Header";
+import SearchBar from "./SearchBar";
 import "./News.css";
 import { Fragment } from "react";
 const APIkey_youtube_search = process.env.REACT_APP_API_KEY_SEARCH_1;
@@ -11,6 +13,12 @@ export default function News() {
   const [video, setVideo] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  let history = useHistory();
+
+  const onSearchHandler = (keyword) => {
+    setLoading(true);
+    history.push(`/search?keyword=${keyword}`);
+  };
 
   const clickTitleHandler = (video) => {
     setLoading(true);
@@ -63,6 +71,7 @@ export default function News() {
   return (
     <Fragment>
       <Header isLoading={loading} />
+      <SearchBar onSearch={onSearchHandler} />
       {results && !error && (
         <div className="content">
           <WatchVideo

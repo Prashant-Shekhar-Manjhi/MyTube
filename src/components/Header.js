@@ -24,7 +24,7 @@ export default function Header(props) {
         <div className="nav-links" onClick={closeHandler}>
           <ul>
             <li>
-              <NavLink to="/MyTube" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 Home
               </NavLink>
             </li>

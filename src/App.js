@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import VideoList from "./components/VideoList";
 import SearchBar from "./components/SearchBar";
 import { Fragment } from "react";
-import { Route, Switch, Redirect, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Search from "./components/Search";
 import News from "./components/News";
 
@@ -17,7 +17,7 @@ function App() {
   const [video, setVideo] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const history = useHistory();
+  let history = useHistory();
 
   const onSearchHandler = (keyword) => {
     setLoading(true);
@@ -78,13 +78,10 @@ function App() {
 
   return (
     <Fragment>
-      <SearchBar onSearch={onSearchHandler} />
       <Switch>
         <Route path="/" exact>
-          <Redirect to="/MyTube" />
-        </Route>
-        <Route path="/MyTube">
           <Header isLoading={loading} />
+          <SearchBar onSearch={onSearchHandler} />
           {results && !error && (
             <div className="content">
               <WatchVideo
@@ -107,6 +104,9 @@ function App() {
         </Route>
         <Route path="/search">
           <Search />
+        </Route>
+        <Route path="/*">
+          <h1 className="page-not-found">Page Not Found.</h1>
         </Route>
       </Switch>
     </Fragment>
