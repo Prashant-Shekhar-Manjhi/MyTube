@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/MyTube/static/css/main.b6e9921d.chunk.css",
-    "main.js": "/MyTube/static/js/main.0d9dda7f.chunk.js",
-    "main.js.map": "/MyTube/static/js/main.0d9dda7f.chunk.js.map",
-    "runtime-main.js": "/MyTube/static/js/runtime-main.1a4158ae.js",
-    "runtime-main.js.map": "/MyTube/static/js/runtime-main.1a4158ae.js.map",
-    "static/js/2.aaee26b5.chunk.js": "/MyTube/static/js/2.aaee26b5.chunk.js",
-    "static/js/2.aaee26b5.chunk.js.map": "/MyTube/static/js/2.aaee26b5.chunk.js.map",
-    "static/js/3.9182ca94.chunk.js": "/MyTube/static/js/3.9182ca94.chunk.js",
-    "static/js/3.9182ca94.chunk.js.map": "/MyTube/static/js/3.9182ca94.chunk.js.map",
+    "main.css": "/MyTube/static/css/main.47afca4b.chunk.css",
+    "main.js": "/MyTube/static/js/main.eb8e75df.chunk.js",
+    "main.js.map": "/MyTube/static/js/main.eb8e75df.chunk.js.map",
+    "runtime-main.js": "/MyTube/static/js/runtime-main.8fe90256.js",
+    "runtime-main.js.map": "/MyTube/static/js/runtime-main.8fe90256.js.map",
+    "static/js/2.52a70406.chunk.js": "/MyTube/static/js/2.52a70406.chunk.js",
+    "static/js/2.52a70406.chunk.js.map": "/MyTube/static/js/2.52a70406.chunk.js.map",
+    "static/js/3.824c9bd9.chunk.js": "/MyTube/static/js/3.824c9bd9.chunk.js",
+    "static/js/3.824c9bd9.chunk.js.map": "/MyTube/static/js/3.824c9bd9.chunk.js.map",
+    "static/js/4.0099ee2a.chunk.js": "/MyTube/static/js/4.0099ee2a.chunk.js",
+    "static/js/4.0099ee2a.chunk.js.map": "/MyTube/static/js/4.0099ee2a.chunk.js.map",
+    "static/js/5.239afe1c.chunk.js": "/MyTube/static/js/5.239afe1c.chunk.js",
+    "static/js/5.239afe1c.chunk.js.map": "/MyTube/static/js/5.239afe1c.chunk.js.map",
     "index.html": "/MyTube/index.html",
-    "static/css/main.b6e9921d.chunk.css.map": "/MyTube/static/css/main.b6e9921d.chunk.css.map",
-    "static/js/2.aaee26b5.chunk.js.LICENSE.txt": "/MyTube/static/js/2.aaee26b5.chunk.js.LICENSE.txt"
+    "static/css/main.47afca4b.chunk.css.map": "/MyTube/static/css/main.47afca4b.chunk.css.map",
+    "static/js/2.52a70406.chunk.js.LICENSE.txt": "/MyTube/static/js/2.52a70406.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1a4158ae.js",
-    "static/js/2.aaee26b5.chunk.js",
-    "static/css/main.b6e9921d.chunk.css",
-    "static/js/main.0d9dda7f.chunk.js"
+    "static/js/runtime-main.8fe90256.js",
+    "static/js/2.52a70406.chunk.js",
+    "static/css/main.47afca4b.chunk.css",
+    "static/js/main.eb8e75df.chunk.js"
   ]
 }
