@@ -34,7 +34,8 @@ export default function News() {
     setLoading(false);
   };
   function fetchNews(APIkey) {
-    const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=W6lv5HJnJBA%2CBMRMPG2Ryw8%2CMN8p-Vrn6G0&key=${APIkey}`;
+    const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=W6lv5HJnJBA%2CHiGkuE_DBvg%2CMN8p-Vrn6G0&key=${APIkey}`;
+
     fetch(url)
       .then((response) => {
         if (!response.ok) throw new Error(`${response.status} News not Found.`);
