@@ -1,0 +1,26 @@
+.watch-video-container{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    margin-top: 6.4rem;
+}
+
+/* 84em == 1344px */
+@media(max-width: 84em){
+    .watch-video-container{
+        display: grid;
+        grid-template-columns: 1fr 18fr;
+        margin-top: 6.4rem;
+    }
+}
+/* 50em == 800px */
+@media(max-width:45em){
+    .watch-video-container{
+        grid-template-columns: 1fr 12fr;
+    }
+}
+
+@media(max-width:45em){
+    .watch-video-container{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,32 @@
+.news-container{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    margin-top: 6.4rem;
+    
+}
+
+.news-container-content{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: #f1f3f5;
+}
+
+/* 84em == 1344px */
+@media(max-width: 84em){
+    .news-container{
+        grid-template-columns: 1fr 18fr;
+    }
+}
+
+/* 45em == 720px */
+@media(max-width:45em){
+    .news-container-content{
+        grid-template-columns: 1fr;
+    }
+
+    .news-container{
+        grid-template-columns: 1fr;
+    }
+}

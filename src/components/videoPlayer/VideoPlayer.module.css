@@ -1,0 +1,26 @@
+.video-player-container{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: #f1f3f5;
+}
+
+.video-list-line{
+    width: 70%;
+    color: red;
+    height: 1.2rem;
+    border: none;
+    background-color: red;
+}
+
+/* media queries */
+/* 45em == 720px */
+@media(max-width:45em){
+    .video-player-container{
+        grid-template-columns: 1fr
+    } 
+    .news-container{
+        grid-template-columns: 1fr 12fr;
+    }
+}

@@ -4,10 +4,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import {VideoContextProvider} from "./context/VideoContext";
 
 ReactDOM.render(
   <HashRouter>
-    <App />
+    <VideoContextProvider>
+      <App />
+    </VideoContextProvider>
   </HashRouter>,
   document.getElementById("root")
 );

@@ -1,0 +1,132 @@
+.video-player-video{
+    background-color: #000;
+    margin-bottom: 2rem;
+}
+
+.video-player-title{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 450;
+    line-height: 1.2;
+    color: #000;
+}
+
+.video-player-desc{
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+
+.video-channel-detail{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.video-channel-name{
+    font-size: 1.4rem;
+    color: #343a40;
+    
+}
+
+
+
+.video-channel-image{
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 2rem;
+}
+
+/* media queries */
+/* 95em == 1520px */
+@media(max-width: 95em){
+    .video-player-title{
+        font-size: 2rem;
+    }
+
+    .video-player-desc{
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+
+    .video-player-video{
+       height: 50rem !important;
+    }
+    
+}
+
+@media(max-width:79em){
+    .video-player-title{
+        font-size: 1.8rem;
+    }
+
+    .video-player-desc{
+        font-size: 1.2rem;
+    }
+
+    .video-player-video{
+       height: 45rem !important;
+    }
+}
+
+/* 72em == 1152px */
+@media(max-width: 72em){
+    .video-player-video{
+        height: 40rem !important;
+     }
+    .video-player-title{
+        font-size: 1.5rem;
+    }
+
+    .video-player-desc{
+        font-size: 1.1rem;
+    }
+
+
+}
+
+/* 50em == 800px */
+@media(max-width:50em){
+    .video-player-video{
+        height: 35rem !important;
+     }
+    .video-player-title{
+        font-size: 1.4rem;
+    }
+
+    .video-player-desc{
+        font-size: 1rem;
+    }
+
+
+}
+
+/* 45em == 720px */
+@media(max-width:45em){
+    .video-player-video{
+        height: 50rem !important;
+     }
+    .video-player-title{
+        font-size: 1.4rem;
+    }
+
+    .video-player-desc{
+        font-size: 1rem;
+    }
+}
+  
+/* 32em == 512px */
+@media(max-width:32em){
+    .video-player-video{
+        height: 35rem !important;
+     }
+    
+}
+/* 32em == 512px */
+@media(max-width:23em){
+    .video-player-video{
+        height: 25rem !important;
+     }
+}
+  
