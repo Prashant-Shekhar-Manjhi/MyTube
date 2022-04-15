@@ -35,8 +35,8 @@
         padding-bottom: 12rem;
     }
 }
-/* 23em == 368px */
-@media(max-width:23em){
+/* 25em == 400px */
+@media(max-width:25em){
     .main-content-container{
         grid-template-columns: 1fr;
     }
