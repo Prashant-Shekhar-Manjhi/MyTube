@@ -169,13 +169,13 @@
     overflow-y:hidden;
   }
   .video-detail-title{
-    font-size: 1.2rem;
-    margin-bottom: 0;
+    font-size: 1rem;
+    margin-bottom: 0.5;
     padding-bottom: 0;
   }
 
   .video-detail-channel{
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
   .video-list-container{
     margin-bottom: 8rem;
