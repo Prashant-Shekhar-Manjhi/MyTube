@@ -66,7 +66,7 @@ const Header = ()=>{
                             to="/news"
                         >
                             <span className={style["live-icon"]}> &#9679; </span>
-                            Live News
+                            News
                         </NavLink>
                         </li>
                     </ul>
