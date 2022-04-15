@@ -25,7 +25,7 @@ export default function Video({video,onClickVideo}){
                     alt="logo"
                 />
                 <div className={style['video-item-title-detail']}>
-                    <h4 className={style["video-item-title"]}>{video.title.slice(0,25)}...</h4>
+                    <h4 className={style["video-item-title"]}>{video.title.slice(0,30)}...</h4>
                     <p className={style['video-item-channel-title']}>{video.videoOwner}</p>
                 </div>
                 <MoreVertOutlinedIcon className={style["video-item-menu"]}/>
