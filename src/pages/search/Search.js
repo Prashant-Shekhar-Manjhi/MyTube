@@ -10,10 +10,11 @@ import VideoList from "../../components/videoList/VideoList";
 export default function Search(){
     const [videos, setVideos] = useState([]);
     const [video, setVideo] = useState();
+    const[error, setError] = useState();
     const location =useLocation();
     const query = new URLSearchParams(location.search);
     const keyword = query.get('keyword');
-    const apiKey = process.env.REACT_APP_API_KEY_SEARCH_3;
+    const apiKey = process.env.REACT_APP_API_KEY_SEARCH_1;
     console.log(apiKey);
     const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${keyword}&type=video&key=${apiKey}`;
 
@@ -37,7 +38,7 @@ export default function Search(){
             setVideos(filteredData);
             setVideo(filteredData[0]);
          } catch (error) {
-             console.log(error)
+             setError(`${error.message} : Videos not found`);
          }
     }
     useEffect(()=>{
@@ -65,6 +66,7 @@ export default function Search(){
                 <div className={style['search-video-content']}>
                     {video && <ReactPlayerVideo video={video}onEnd={onEndHandler}/>}
                     {video && <VideoList index={videos.indexOf(video)} videos={videos} onClickItem={onClickHandler}/>}
+                    {error && <h1 className='error-message'>{error}</h1>}  
                 </div>
             </div>
         </div>

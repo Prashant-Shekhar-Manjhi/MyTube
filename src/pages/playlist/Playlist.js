@@ -7,12 +7,13 @@ import VideoList from '../../components/videoList/VideoList';
 import style from "./Playlist.module.css";
 import axios from 'axios';
 export default function Playlist(){
-    const [videos, setVideos] = useState([]);
-    const [video, setVideo] = useState({});
+    const [videos, setVideos] = useState();
+    const [video, setVideo] = useState();
+    const [error, setError] = useState();
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const Mixtape = query.get('playlistId');
-    const apiKey = process.env.REACT_APP_API_KEY_PLAYLIST_2;
+    const apiKey = process.env.REACT_APP_API_KEY_PLAYLIST_3;
     const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=${Mixtape}&key=${apiKey}`;
     
     const fetchVideos = async (url)=>{
@@ -34,7 +35,7 @@ export default function Playlist(){
             setVideos(filteredData);
             setVideo(filteredData[0]);    
         } catch (error) {
-            console.log(error);
+            setError(`${error.message} : Videos not found`);
         }
     }
 
@@ -60,8 +61,9 @@ export default function Playlist(){
             <div className={style['playlist-video-container']}>
                 <Sidebar/>
                 <div className={style['playlist-container-content']}>
-                    {video && <ReactPlayerVideo video={video}onEnd={onEndHandler}/>}
-                    {video && <VideoList index={videos.indexOf(video)} videos={videos} onClickItem={onClickHandler}/>}      
+                    {!error && video && <ReactPlayerVideo video={video}onEnd={onEndHandler}/>}
+                    {!error && video && <VideoList index={videos.indexOf(video)} videos={videos} onClickItem={onClickHandler}/>}  
+                    {error && <h1 className='error-message'>{error}</h1>}     
                 </div>
             </div>
         </div>

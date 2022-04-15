@@ -7,11 +7,12 @@ import ReactPlayerVideo from "../../components/ReactPlayer/ReactPlayerVideo";
 import VideoList from "../../components/videoList/VideoList";
 
 export default function News(){
-    const [newsVideos, setNewsVideos] = useState([]);
-    const [newsVideo, setNewsVideo] = useState({});
+    const [newsVideos, setNewsVideos] = useState();
+    const [newsVideo, setNewsVideo] = useState();
+    const [error, setError] = useState();
 
     //video id's
-    const apiKey = process.env.REACT_APP_API_KEY_SEARCH_3
+    const apiKey = process.env.REACT_APP_API_KEY_SEARCH_2;
     const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=Cy_6-_XUW-c%2CYZCSwQI8yoA%2CMN8p-Vrn6G0%2Cnyd-xznCpJc%2CXmm3Kr5P1Uw&key=${apiKey}`;
     
 
@@ -34,7 +35,9 @@ export default function News(){
             setNewsVideos(filteredData);
             setNewsVideo(filteredData[0]);
         }catch(err){
-            console.log(err);
+            if(err){
+                setError(`${err.message} : News not Found`)
+            }
         }
     }
     useEffect(()=>{
@@ -58,8 +61,9 @@ export default function News(){
             <div className={style['news-container']}>
                 <Sidebar/>
                 <div className={style['news-container-content']}>
-                    {newsVideo && <ReactPlayerVideo video={newsVideo}onEnd={onEndHandler}/>}
-                    {newsVideo && <VideoList index={newsVideos.indexOf(newsVideo)} videos={newsVideos} onClickItem={onClickHandler}/>}      
+                    {!error && newsVideo && <ReactPlayerVideo video={newsVideo}onEnd={onEndHandler}/>}
+                    {!error && newsVideo && <VideoList index={newsVideos.indexOf(newsVideo)} videos={newsVideos} onClickItem={onClickHandler}/>}    
+                    {error && <h1 className='error-message'>{error}</h1>}  
                 </div>
             </div>
         </div>

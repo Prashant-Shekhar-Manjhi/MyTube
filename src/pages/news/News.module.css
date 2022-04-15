@@ -13,6 +13,8 @@
     background-color: #f1f3f5;
 }
 
+
+
 /* 84em == 1344px */
 @media(max-width: 84em){
     .news-container{

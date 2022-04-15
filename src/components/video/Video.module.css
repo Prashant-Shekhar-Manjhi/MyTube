@@ -87,9 +87,18 @@
         font-size: 0.8rem;
     }
 
+    .video-item-channel-title{
+        font-size: 0.8rem;
+        /* margin-left: 5rem; */
+    }
+
     .video-item-logo{
         width: 2.8rem;
         height: 2.8rem;
+    }
+
+    .video-item-menu{
+        font-size: 1.6rem !important;
     }
 }
 

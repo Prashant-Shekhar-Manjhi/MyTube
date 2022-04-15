@@ -12,6 +12,10 @@ export default function WatchVideo(){
     const query = new URLSearchParams(location.search);
     const index = query.get("index");
     useEffect(()=>{
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+            });
         videos && setVideo(videos[index]);
     },[index,videos])
     return (
