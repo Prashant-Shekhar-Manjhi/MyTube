@@ -107,6 +107,10 @@
     .video-item-title{
         font-size: 1rem;
     }
+    .video-item-detail{
+        grid-template-columns: 0.8fr 6fr 0.1fr;
+
+    }
 }
 
 
