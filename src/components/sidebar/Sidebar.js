@@ -7,14 +7,15 @@ import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
 import RestoreOutlinedIcon from '@mui/icons-material/RestoreOutlined';
 // import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
-import OndemandVideoOutlinedIcon from '@mui/icons-material/OndemandVideoOutlined';
+// import OndemandVideoOutlinedIcon from '@mui/icons-material/OndemandVideoOutlined';
 import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 export default function Sidebar(){
     const history = useHistory();
-    const mixtapePlaylist = "PL9bw4S5ePsEGvKT-BLodE1Hen7Yuqhbd2";
+    const mixtapePlaylist = "PLSxUY0Ba_sdQlO088vvKYT3Rwf5U7wDhn";
     const popMusicPlaylist = "PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj";
-    const hindiOldSongsPlaylist = 'PLXCoHsJ9oLecZCEFBjTlDaPYXZo7vgtUH';
+    const oldSongs = 'PLSxUY0Ba_sdQVfZplJ4wu3rdqpGDBXG0K';
     const hindiNewSongsPlaylist = 'PLO7-VO1D0_6M1xUjj8HxTxskouWx48SNw';
+    const nintySongs = "PLSxUY0Ba_sdRGv7da6x_CAz1DKPKsO1kC";
     //Mixtape...
     const onClickMixtape = ()=>{
         history.push({
@@ -34,7 +35,7 @@ export default function Sidebar(){
     const onClickHindiOldSong = ()=>{
         history.push({
             pathname:'/playlist',
-            search: `playlistId=${hindiOldSongsPlaylist}`
+            search: `playlistId=${oldSongs}`
         })
     }
     // hindi new song...
@@ -42,6 +43,13 @@ export default function Sidebar(){
         history.push({
             pathname:'/playlist',
             search: `playlistId=${hindiNewSongsPlaylist}`
+        })
+    }
+
+    const onClickNinty = ()=>{
+        history.push({
+            pathname:'/playlist',
+            search: `playlistId=${nintySongs}`
         })
     }
 
@@ -61,9 +69,7 @@ export default function Sidebar(){
         alert("Yet to be implemented...")
     }
 
-    const onClickYourVideo = ()=>{
-        alert("Yet to be implemented...")
-    }
+    
     
 
     return (
@@ -90,9 +96,9 @@ export default function Sidebar(){
                     <RestoreOutlinedIcon className={style['sidebar-icon']}/>
                     <p className={style['sidebar-list-item-text']}>History</p>
                 </li>
-                <li className={style['sidebar-list-item']} onClick={onClickYourVideo}>
-                    <OndemandVideoOutlinedIcon className={style['sidebar-icon']}/>
-                    <p className={style['sidebar-list-item-text']}>Your videos</p>
+                <li className={style['sidebar-list-item']} onClick={onClickNinty}>
+                    <PlaylistPlayIcon className={style['sidebar-icon']}/>
+                    <p className={style['sidebar-list-item-text']}>90's Songs</p>
                 </li>
                 <li className={style['sidebar-list-item']} onClick={onClickHindiNewSong}>
                     <PlaylistPlayIcon className={style['sidebar-icon']}/>
