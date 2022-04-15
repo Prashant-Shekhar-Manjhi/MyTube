@@ -6,7 +6,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
 import RestoreOutlinedIcon from '@mui/icons-material/RestoreOutlined';
-import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+// import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import OndemandVideoOutlinedIcon from '@mui/icons-material/OndemandVideoOutlined';
 import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 export default function Sidebar(){
@@ -14,7 +14,7 @@ export default function Sidebar(){
     const mixtapePlaylist = "PL9bw4S5ePsEGvKT-BLodE1Hen7Yuqhbd2";
     const popMusicPlaylist = "PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj";
     const hindiOldSongsPlaylist = 'PLXCoHsJ9oLecZCEFBjTlDaPYXZo7vgtUH';
-    // const lengendaryPlalist = "PLXCoHsJ9oLeeWbJutDC3xFzCAxLUC-PXY";
+    const hindiNewSongsPlaylist = 'PLO7-VO1D0_6M1xUjj8HxTxskouWx48SNw';
     //Mixtape...
     const onClickMixtape = ()=>{
         history.push({
@@ -37,14 +37,13 @@ export default function Sidebar(){
             search: `playlistId=${hindiOldSongsPlaylist}`
         })
     }
-
-    // const onClickLegend = ()=>{
-    //     console.log("click")
-    //     history.push({
-    //         pathname:'/playlist',
-    //         search: `playlistId=${lengendaryPlalist}`
-    //     })
-    // }
+    // hindi new song...
+    const onClickHindiNewSong = ()=>{
+        history.push({
+            pathname:'/playlist',
+            search: `playlistId=${hindiNewSongsPlaylist}`
+        })
+    }
 
     const onClickExplore = ()=>{
         alert("Yet to be implemented...")
@@ -65,9 +64,7 @@ export default function Sidebar(){
     const onClickYourVideo = ()=>{
         alert("Yet to be implemented...")
     }
-    const onClickWatchLater = ()=>{
-        alert("Yet to be implemented...")
-    }
+    
 
     return (
         <div className={style['sidebar-container']}>
@@ -97,11 +94,10 @@ export default function Sidebar(){
                     <OndemandVideoOutlinedIcon className={style['sidebar-icon']}/>
                     <p className={style['sidebar-list-item-text']}>Your videos</p>
                 </li>
-                <li className={style['sidebar-list-item']} onClick={onClickWatchLater}>
-                    <AccessTimeOutlinedIcon className={style['sidebar-icon']}/>
-                    <p className={style['sidebar-list-item-text']}>Watch later</p>
+                <li className={style['sidebar-list-item']} onClick={onClickHindiNewSong}>
+                    <PlaylistPlayIcon className={style['sidebar-icon']}/>
+                    <p className={style['sidebar-list-item-text']}>New Hindi</p>
                 </li>
-                <hr className={style["sidebar-line"]}/>
                 <li className={style['sidebar-list-item']} onClick={onClickMixtape}>
                     <PlaylistPlayIcon className={style['sidebar-icon']}/>
                     <p className={style['sidebar-list-item-text']}>Mixtape</p>

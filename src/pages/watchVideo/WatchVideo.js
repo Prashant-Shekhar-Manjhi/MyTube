@@ -15,7 +15,7 @@ export default function WatchVideo(){
         window.scrollTo({
             top: 0,
             behavior: "smooth",
-            });
+        });
         videos && setVideo(videos[index]);
     },[index,videos])
     return (

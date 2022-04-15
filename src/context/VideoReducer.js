@@ -5,6 +5,12 @@ const VideoReducer = (state, action)=>{
             videos: action.payload
         }
     }
+    else if(action.type === 'UPDATE_FAILURE'){
+        return {
+            videos: null,
+            error: action.payload,
+        }
+    }
 }
 
 export default VideoReducer;

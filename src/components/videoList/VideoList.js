@@ -6,7 +6,6 @@ export default function VideoList({index, videos, onClickItem}){
     const nonPlayingVideos = videos.filter((video)=>{
         return videos.indexOf(video) !== index;
     })
-    console.log(playingVideo);
     return (
         <div className={style['video-list-container']}>
             <hr className={style["video-list-line"]}/>
