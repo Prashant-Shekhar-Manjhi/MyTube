@@ -18,6 +18,13 @@
     }
 }
 
+/* 62rem == 992px */
+@media(max-width:62em){
+    .search-video-container{
+        grid-template-columns: 1fr 14fr;
+    }
+}
+
 /* 45em == 720px */
 @media(max-width:45em){
     .search-video-content{

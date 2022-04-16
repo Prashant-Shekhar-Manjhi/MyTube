@@ -9,8 +9,7 @@ export default function ReactPlayerVideo({video, onEnd}){
                 id="video-player"
                 width="100%"
                 height="60rem"
-                controls
-                playing
+                playing={true}
                 onEnded={()=>onEnd()}
                 url={`https://youtu.be/${video.vid}`}
             />

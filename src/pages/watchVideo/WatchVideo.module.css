@@ -12,6 +12,14 @@
         margin-top: 6.4rem;
     }
 }
+
+/* 62rem == 992px */
+@media(max-width:62em){
+    .watch-video-container{
+        grid-template-columns: 1fr 14fr;
+    }
+}
+
 /* 50em == 800px */
 @media(max-width:45em){
     .watch-video-container{
