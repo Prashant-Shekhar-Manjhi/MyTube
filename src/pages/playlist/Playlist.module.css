@@ -32,3 +32,11 @@
     } 
 }
 
+/* 25em == 400px */
+@media(max-width:25em){
+    .playlist-container-content{
+        padding: 0.8rem;
+    }
+} 
+
+

@@ -24,3 +24,10 @@
         grid-template-columns: 1fr 12fr;
     }
 }
+
+/* 25em == 400px */
+@media(max-width:25em){
+    .video-player-container{
+        padding: 0.8rem;
+    }
+} 

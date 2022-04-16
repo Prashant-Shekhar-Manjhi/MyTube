@@ -32,3 +32,11 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* 25em == 400px */
+@media(max-width:25em){
+    .news-container-content{
+        padding: 0.8rem;
+    }
+} 
+

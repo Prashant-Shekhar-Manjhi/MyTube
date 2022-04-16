@@ -31,3 +31,12 @@
     } 
 }
 
+/* 25em == 400px */
+@media(max-width:25em){
+    .search-video-content{
+        padding: 0.8rem;
+    }
+} 
+
+
+
