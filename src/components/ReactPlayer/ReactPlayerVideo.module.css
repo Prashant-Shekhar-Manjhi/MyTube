@@ -129,4 +129,11 @@
         height: 25rem !important;
      }
 }
+
+/* 25em == 400px */
+@media(max-width:25em){
+    .video-player-video{
+        height: 22rem !important;
+     }
+} 
   
