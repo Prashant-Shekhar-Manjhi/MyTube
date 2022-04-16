@@ -14,7 +14,7 @@ export default function Sidebar(){
     const mixtapePlaylist = "PLSxUY0Ba_sdQlO088vvKYT3Rwf5U7wDhn";
     const popMusicPlaylist = "PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj";
     const oldSongs = 'PLSxUY0Ba_sdQVfZplJ4wu3rdqpGDBXG0K';
-    const hindiNewSongsPlaylist = 'PLO7-VO1D0_6M1xUjj8HxTxskouWx48SNw';
+    const hindiNewSongsPlaylist = 'PLSxUY0Ba_sdQHu0L4Jtw4KDaMx1dPp9Vm';
     const nintySongs = "PLSxUY0Ba_sdRGv7da6x_CAz1DKPKsO1kC";
     //Mixtape...
     const onClickMixtape = ()=>{

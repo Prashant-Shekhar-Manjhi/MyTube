@@ -35,9 +35,9 @@
         padding-bottom: 12rem;
     }
 }
-/* 25em == 400px */
+/* 25em == 400px
 @media(max-width:25em){
     .main-content-container{
         grid-template-columns: 1fr;
     }
-}
+} */
