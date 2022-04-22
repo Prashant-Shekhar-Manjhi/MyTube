@@ -33,6 +33,15 @@
     } 
 }
 
+/* 32em == 512px */
+@media(max-width:43em){
+    .home-main-content{
+        margin-top: 5.2rem;
+    }
+    
+
+}
+
 /* 43em == 688px */
 @media(max-width:43em){
     .home-main-content{

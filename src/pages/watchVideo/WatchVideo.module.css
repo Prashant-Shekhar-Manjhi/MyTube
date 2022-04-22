@@ -32,3 +32,10 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* 32em == 512px */
+@media(max-width:43em){
+    .watch-video-container{
+        margin-top: 5.2rem;
+    }   
+}

@@ -40,6 +40,13 @@
     }
 }
 
+/* 32em == 512px */
+@media(max-width:43em){
+    .news-container{
+        margin-top: 5.2rem;
+    }   
+}
+
 /* 25em == 400px */
 @media(max-width:25em){
     .news-container-content{
