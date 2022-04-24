@@ -12,7 +12,8 @@ import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 export default function Sidebar(){
     const history = useHistory();
     const mixtapePlaylist = "PLSxUY0Ba_sdQlO088vvKYT3Rwf5U7wDhn";
-    const popMusicPlaylist = "PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj";
+    // const popMusicPlaylist = "PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj";
+    const popMusicPlaylist = "PLSxUY0Ba_sdTk_GGv0lKgc_VCXjslaSur";
     const oldSongs = 'PLSxUY0Ba_sdQVfZplJ4wu3rdqpGDBXG0K';
     const hindiNewSongsPlaylist = 'PLSxUY0Ba_sdQHu0L4Jtw4KDaMx1dPp9Vm';
     const nintySongs = "PLSxUY0Ba_sdRGv7da6x_CAz1DKPKsO1kC";
