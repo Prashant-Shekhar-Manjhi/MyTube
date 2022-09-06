@@ -16,7 +16,7 @@ export default function Sidebar(){
     const popMusicPlaylist = "PLSxUY0Ba_sdTk_GGv0lKgc_VCXjslaSur";
     const oldSongs = 'PLSxUY0Ba_sdQVfZplJ4wu3rdqpGDBXG0K';
     const hindiNewSongsPlaylist = 'PLSxUY0Ba_sdQHu0L4Jtw4KDaMx1dPp9Vm';
-    const nintySongs = "PLSxUY0Ba_sdRGv7da6x_CAz1DKPKsO1kC";
+    // const nintySongs = "PLSxUY0Ba_sdRGv7da6x_CAz1DKPKsO1kC";
     //Mixtape...
     const onClickMixtape = ()=>{
         history.push({
@@ -44,13 +44,6 @@ export default function Sidebar(){
         history.push({
             pathname:'/playlist',
             search: `playlistId=${hindiNewSongsPlaylist}`
-        })
-    }
-
-    const onClickNinty = ()=>{
-        history.push({
-            pathname:'/playlist',
-            search: `playlistId=${nintySongs}`
         })
     }
 
@@ -96,10 +89,6 @@ export default function Sidebar(){
                 <li className={style['sidebar-list-item']} onClick={onClickHistory}>
                     <RestoreOutlinedIcon className={style['sidebar-icon']}/>
                     <p className={style['sidebar-list-item-text']}>History</p>
-                </li>
-                <li className={style['sidebar-list-item']} onClick={onClickNinty}>
-                    <PlaylistPlayIcon className={style['sidebar-icon']}/>
-                    <p className={style['sidebar-list-item-text']}>90's Songs</p>
                 </li>
                 <li className={style['sidebar-list-item']} onClick={onClickHindiNewSong}>
                     <PlaylistPlayIcon className={style['sidebar-icon']}/>
